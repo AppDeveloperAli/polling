@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:polling/screens/home.dart';
 import 'package:polling/screens/polls.dart';
+import 'package:polling/screens/qrCode.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,6 +39,7 @@ class _BottomNavigationBarExampleState extends State<MainScreen> {
   static final List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     MyPollsScreen(),
+    QRhome(),
   ];
 
   void _onItemTapped(int index) {
@@ -61,6 +63,10 @@ class _BottomNavigationBarExampleState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.how_to_vote),
             label: 'My Polls',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.qr_code),
+            label: 'QR code',
           ),
         ],
         currentIndex: _selectedIndex,

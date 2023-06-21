@@ -2,7 +2,9 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:polling/screens/qrCode.dart';
 import 'package:polling/utils/snackBar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simple_polls/models/poll_models.dart';
@@ -475,12 +477,25 @@ class _MyPollsScreenState extends State<MyPollsScreen> {
                       model: PollFrameModel(
                         title: Container(
                           alignment: Alignment.centerLeft,
-                          child: Text(
-                            snapshot.data!.docs[index]["Question"],
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                snapshot.data!.docs[index]["Question"],
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              InkWell(
+                                  onTap: (){
+
+                                    Navigator.of(context).push(
+                                        CupertinoPageRoute(builder: (BuildContext context)=>
+                                            CreateQrCode(textQrCode: snapshot.data!.docs[index]["Question"],nextString: snapshot.data!.docs[index]["op1"],)));
+                                  },
+                                  child: Icon(Icons.share))
+                            ],
                           ),
                         ),
                         totalPolls: snapshot.data!.docs[index]["totalPolls"],
