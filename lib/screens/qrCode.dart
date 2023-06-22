@@ -10,8 +10,8 @@ import 'package:share_plus/share_plus.dart';
 
 
 class CreateQrCode extends StatefulWidget {
-  final String? textQrCode,nextString;
-  const CreateQrCode({Key? key,this.textQrCode,this.nextString}) : super(key: key);
+  final String? textQrCode,op1,op2,op3,op4;
+  const CreateQrCode({Key? key,this.textQrCode,this.op1,this.op2,this.op3,this.op4}) : super(key: key);
 
   @override
   State<CreateQrCode> createState() => _CreateQrCodeState();
@@ -29,13 +29,13 @@ class _CreateQrCodeState extends State<CreateQrCode> {
     File imgFile  = File("$directory/qrCode.png");
     await imgFile.writeAsBytes(pngBytes);
     await Share.shareFiles([imgFile.path],text:"Your text share");
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Create Qr code scrren"),
+        title: const Text("Share your Poll"),
         centerTitle: true,
         elevation: 0.0,
       ),
@@ -49,7 +49,7 @@ class _CreateQrCodeState extends State<CreateQrCode> {
                 child: RepaintBoundary(
                   key: globalKey,
                   child: QrImageView(
-                    data: "${widget.textQrCode},${widget.nextString}",
+                    data: "${widget.textQrCode},\n${widget.op1},\n${widget.op2},\n${widget.op3},\n${widget.op4}",
                     version: QrVersions.auto,
                     size: 200,
                     backgroundColor: Colors.white,

@@ -46,6 +46,7 @@ dependencies:
   screenshot: ^2.1.0
   path_provider: ^2.0.15
   share_plus: ^7.0.2
+  firebase_dynamic_links: ^5.3.3
 
 dev_dependencies:
   flutter_test:

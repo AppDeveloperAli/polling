@@ -492,7 +492,11 @@ class _MyPollsScreenState extends State<MyPollsScreen> {
 
                                     Navigator.of(context).push(
                                         CupertinoPageRoute(builder: (BuildContext context)=>
-                                            CreateQrCode(textQrCode: snapshot.data!.docs[index]["Question"],nextString: snapshot.data!.docs[index]["op1"],)));
+                                            CreateQrCode(textQrCode: snapshot.data!.docs[index]["Question"],
+                                              op1: snapshot.data!.docs[index]["op1"],
+                                              op2: snapshot.data!.docs[index]["op2"],
+                                              op3: snapshot.data!.docs[index]["op3"],
+                                              op4: snapshot.data!.docs[index]["op4"],)));
                                   },
                                   child: Icon(Icons.share))
                             ],

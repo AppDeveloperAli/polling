@@ -39,7 +39,7 @@ class _BottomNavigationBarExampleState extends State<MainScreen> {
   static final List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     MyPollsScreen(),
-    QRhome(),
+    // QRhome(),
   ];
 
   void _onItemTapped(int index) {
@@ -64,10 +64,10 @@ class _BottomNavigationBarExampleState extends State<MainScreen> {
             icon: Icon(Icons.how_to_vote),
             label: 'My Polls',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.qr_code),
-            label: 'QR code',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.qr_code),
+          //   label: 'QR code',
+          // ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
