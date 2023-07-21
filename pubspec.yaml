@@ -46,7 +46,10 @@ dependencies:
   screenshot: ^2.1.0
   path_provider: ^2.0.15
   share_plus: ^7.0.2
-  firebase_dynamic_links: ^5.3.3
+  firebase_dynamic_links: ^5.3.4
+  firebase_analytics: ^10.4.3
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.1
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +61,43 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path_android: "assets/tick.png"
+  image_path_ios: "assets/tick.png"
+  adaptive_icon_background: "assets/Black.png"
+  adaptive_icon_foreground: "assets/tick.png"
+  min_sdk_android: 21
+  web:
+    generate: true
+    image_path: "assets/appicon.jpeg"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/appicon.jpeg"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/appicon.jpeg"
+
+flutter_native_splash:
+  color: "#000000"
+  image: assets/splash.png
+  color_dark: "#000000"
+  image_dark: assets/splash.png
+  android_gravity : "center"
+  ios_content_mode : "center"
+  android: true
+  ios: true
+  android_12:
+    image : assets/splash.png
+    icon_background_color: "#000000"
+    image_dark: assets/splash.png
+    icon_background_color_dark: "#000000"
+    android_gravity : "center"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -71,8 +111,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

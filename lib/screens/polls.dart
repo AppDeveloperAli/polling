@@ -191,7 +191,7 @@ class _MyPollsScreenState extends State<MyPollsScreen> {
       TextEditingController op3Edit,
       TextEditingController op4Edit,
       TextEditingController daysEdit) {
-    var uid = FirebaseAuth.instance.currentUser!.uid;
+    var uid = FirebaseAuth.instance.currentUser?.uid;
     return Scaffold(
         appBar: AppBar(
           title: Text('My Polls'),

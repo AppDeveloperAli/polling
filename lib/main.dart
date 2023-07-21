@@ -3,12 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:polling/screens/home.dart';
 import 'package:polling/screens/polls.dart';
 import 'package:polling/screens/qrCode.dart';
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+import 'package:polling/utils/dynamicLinks.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  DynamicLinkHandler().initDynamicLink();
+  String link = 'https://www.votestar.com.au/JTT6';
+
+  final PendingDynamicLinkData? initialLink = await FirebaseDynamicLinks.instance.getDynamicLink(Uri.parse(link));
+
+  print('=========== $initialLink');
   runApp(const MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -19,7 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'Polling App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
       home: const MainScreen(),
@@ -39,7 +49,7 @@ class _BottomNavigationBarExampleState extends State<MainScreen> {
   static final List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     MyPollsScreen(),
-    // QRhome(),
+    QRhome(),
   ];
 
   void _onItemTapped(int index) {
@@ -70,7 +80,7 @@ class _BottomNavigationBarExampleState extends State<MainScreen> {
           // ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.blue[800],
         onTap: _onItemTapped,
       ),
     );
